@@ -1,5 +1,5 @@
 {
-  "name": "Tab Query!",
+  "name": "Tab Query!", 
   "version": "1.0.0",
   "description": "Find your tab",
   "permissions": ["tabs","storage"],
