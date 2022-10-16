@@ -1,0 +1,38 @@
+{
+  "name": "Tab Query!", 
+  "version": "1.0.0",
+  "description": "Find your tab",
+  "permissions": ["tabs","storage", "scripting","activeTab", "webNavigation"], 
+  "manifest_version": 3,
+  "author": "Osman Goni",
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "action":{
+    "default_popup": "popup.html",
+    "default_title": "Latest Covid Report", 
+    "default_icon": {              
+      "16": "images/icon16.png",   
+      "24": "images/icon24.png",   
+      "32": "images/icon32.png"    
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.com/*"],
+        "js": ["script.js"],
+        "run_at": "document_start"
+    }
+  ],
+  "chrome_url_override" : {
+    "newtab" : "newtab.html"
+  }
+
+}
+
+
+
