@@ -9,31 +9,22 @@
 // }
 // fetchData();
 
+let lists = document.querySelectorAll(".btn-link");
 
+lists.forEach((element) => {
+  element.addEventListener("click", async (e) => {
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-
-
-  let lists = document.querySelectorAll('.btn-link')
-
-
-lists.forEach(element => {
-  element.addEventListener('click', async (e) => {
-    let [tab] = await chrome.tabs.query({active: true, currentWindow: true})
-  
     chrome.scripting.executeScript({
-      target: {tabId: tab.id},
+      target: { tabId: tab.id },
       function: pickColor,
-      args: [tab, 'test'],
-    })
-  
-  })
+      args: [tab, "test"],
+    });
+  });
 });
-
-
 
 // function pickColor(...tab) {
 //   // console.log(tab[1]);
-
 
 //   chrome.runtime.sendMessage(
 //     "foo",
@@ -42,8 +33,6 @@ lists.forEach(element => {
 //     }
 //   );
 // }
-
-
 
 console.log("this is content.js reporting for duty");
 
@@ -62,15 +51,42 @@ console.log("this is content.js reporting for duty");
 
 // })()
 
+let cl = document.querySelector(".btn");
 
+cl.addEventListener("click", () => {
+  console.log(chrome);
+});
 
+////////// youtube recent list
+// document.addEventListener("DOMContentLoaded", async () => {
+//   const linksList = document.getElementById("linksList");
+//   const url = "https://jgg-utils.netlify.app/api/recentYTVideos";
 
+//   const copy = (e) => {
+//     const str = e.target.dataset.url;
+//     const el = document.createElement("textarea");
+//     el.value = str;
+//     document.body.appendChild("copy");
+//     document.removeChild(el);
+//   };
 
-let cl = document.querySelector('.btn')
-
-
-cl.addEventListener('click',  () => {
-  console.log(chrome)
-})
-
-
+//   try {
+//     const res = await fetch(url);
+//     const videos = await res.json();
+//     const videosHTML = videos
+//       .map((video) => {
+//         const videoUrl = `https://www.youtube.com/watch?v=${video.videoId}`;
+//         return `<li class="video-link">
+//       <button class="btn" data-url="${videoUrl}">Copu URL</button>
+//       <a class="btn" href="${videoUrl}" rel="noopener noreferrer" target="_blank">Watch</a>
+//       ${video.title}
+//     </li>`;
+//       })
+//       .join("");
+//     linksList.innerHTML = videosHTML;
+//     const videoLinks = [...document.querySelectorAll(".video-lin")];
+//     videoLinks.forEach((link) => link.addEventListener("click", copy));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });

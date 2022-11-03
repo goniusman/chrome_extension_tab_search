@@ -1,34 +1,34 @@
-chrome.tabs.query({
-  active: true,currentWindow: true
-}).then(tabs => {
-  var tab = tabs[0];
-  chrome.storage.local.get("tab"+tab.id).then(data => {
-         try{
-          var x = data["tab"+tab.id];
-          document.getElementById("iFrameHTML").innerHTML = x.iFrames;
-          document.getElementById("imgHTML").innerHTML = x.images;
-          document.getElementById("totalHTML").innerHTML = x.total;
-       }catch(e) {
-      }
-      
-  });
+document.addEventListener("DOMContentLoaded", async() => {
+    const linksList = document.getElementById("linksList");
+    const url = "https://jgg-utils.netlify.app/api/recentYTVideos";
+
+    const copy = (e) => {
+        const str = e.target.dataset.url;
+        const el = document.createElement("textarea");
+        el.value = str;
+        document.body.appendChild("copy");
+        document.removeChild(el);
+    };
+
+    try {
+        const res = await fetch(url);
+        const videos = await res.json();
+        const videosHTML = videos
+            .map((video) => {
+                const videoUrl = `https://www.youtube.com/watch?v=${video.videoId}`;
+                return `<li class="video-link">
+      <button class="btn" data-url="${videoUrl}">Copu URL</button>
+      <a class="btn" href="${videoUrl}" rel="noopener noreferrer" target="_blank">Watch</a>
+      ${video.title}
+    </li>`;
+            })
+            .join("");
+        linksList.innerHTML = videosHTML;
+        const videoLinks = [...document.querySelectorAll(".video-lin")];
+        videoLinks.forEach((link) => link.addEventListener("click", copy));
+    } catch (error) {
+        console.log(error);
+    }
 });
 
-
-
-
-
-
-
-
-
-// chrome.extension.onRequest.addListener(
-//   function(request, sender, sendResponse) {
-//       if(request.method == "getText"){
-//           sendResponse({data: document.all[0].innerText, method: "getText"}); //same as innerText
-//       }
-//   }
-// );
-
-
-
+document.addEventListener("");
