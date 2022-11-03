@@ -1,113 +1,93 @@
+// chrome.windows.getAll({populate:true}, getAllOpenWindows);
+// function getAllOpenWindows(winData) {
+//   var tabs = [];
+//   for (var i in winData) {
+//     if (winData[i].focused === true) {
+//         var winTabs = winData[i].tabs;
+//         var totTabs = winTabs.length;
+//         for (var j=0; j<totTabs;j++) {
+//           tabs.push(winTabs[j].url);
+//         }
+//     }
+//   }
+//   console.log(winData);
+// }
 
-  // chrome.windows.getAll({populate:true}, getAllOpenWindows);
-  // function getAllOpenWindows(winData) {
-  //   var tabs = [];
-  //   for (var i in winData) {
-  //     if (winData[i].focused === true) {
-  //         var winTabs = winData[i].tabs;
-  //         var totTabs = winTabs.length;
-  //         for (var j=0; j<totTabs;j++) {
-  //           tabs.push(winTabs[j].url);
-  //         }
-  //     }
-  //   }
-  //   console.log(winData);
-  // }
+// chrome.tabs.query({ currentWindow: true }, function (tabs) {
+//   let search = tabs.filter(function (tab) {
+//   return tab.url.split("?")[0].substr("8").split('.')[0].includes('m');
+// });
 
+// console.log(search[0].selected);
+// search[0].selected = true;
+// search[0].active = true;
+// search[0].highlighted = true;
+// console.log(search[0].selected);
 
- 
+// console.log(tabs);
 
+// chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+//     your_tab_Id = sender.tab.id;
+//     chrome.tabs.update(your_tab_Id,{"active":true,"highlighted":true},function (tab){
+//         console.log("Completed updating tab .." + JSON.stringify(tab));
+//     });
+// });
 
-  // chrome.tabs.query({ currentWindow: true }, function (tabs) {
-  //   let search = tabs.filter(function (tab) {
-  //   return tab.url.split("?")[0].substr("8").split('.')[0].includes('m');
-  // });
+////find tab id
+// chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+//     your_tab_Id = sender.tab.id);
+// });
 
-    // console.log(search[0].selected);
-    // search[0].selected = true;
-    // search[0].active = true;
-    // search[0].highlighted = true;
-    // console.log(search[0].selected);
+///////// use instead of onRequest
+//   chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+//     your_tab_Id = sender.tab.id;
+//     chrome.tabs.update(your_tab_Id,{"active":true,"highlighted":true},function (tab){
+//         console.log("Completed updating tab .." + JSON.stringify(tab));
+//     });
+// })
 
-    // console.log(tabs);
+// chrome.tabs.update(1596125322,{"active":true,"highlighted":true},function (tab){
+//   console.log("Completed updating tab .." + JSON.stringify(tab));
+// });
 
-    // chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-    //     your_tab_Id = sender.tab.id;
-    //     chrome.tabs.update(your_tab_Id,{"active":true,"highlighted":true},function (tab){
-    //         console.log("Completed updating tab .." + JSON.stringify(tab));
-    //     });
-    // });
+// search.forEach(element => {
+//   // console.log(element.favIconUrl);
+//   // console.log(element.title);
+//   // console.log(element.windowId);
 
-    ////find tab id
-    // chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-    //     your_tab_Id = sender.tab.id);
-    // });
+//   element.active = true;
+//   element.selected = true;
 
+// });
+// console.log(all);
 
-    ///////// use instead of onRequest 
-    //   chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-    //     your_tab_Id = sender.tab.id;
-    //     chrome.tabs.update(your_tab_Id,{"active":true,"highlighted":true},function (tab){
-    //         console.log("Completed updating tab .." + JSON.stringify(tab));
-    //     });
-    // })
-
-
-    // chrome.tabs.update(1596125322,{"active":true,"highlighted":true},function (tab){
-    //   console.log("Completed updating tab .." + JSON.stringify(tab));
-    // }); 
-
-    // search.forEach(element => {
-    //   // console.log(element.favIconUrl);
-    //   // console.log(element.title);
-    //   // console.log(element.windowId);
-
-    //   element.active = true;
-    //   element.selected = true;
-
-
-    // });
-    // console.log(all);
-
-
-  
-  // });
-
-
-
-
-
-
-
-
+// });
 
 //// find text
-  // let do = document.getElementsByClassName('question-page');
+// let do = document.getElementsByClassName('question-page');
 
-  // function deepText(node){
-  //     var A= [];
-  //     if(node){
-  //         node= node.firstChild;
-  //         while(node!= null){
-  //             if(node.nodeType== 3) A[A.length]=node;
-  //             else A= A.concat(deepText(node));
-  //             node= node.nextSibling;
-  //         }
-  //     }
-  //     return A;
-  // }
+// function deepText(node){
+//     var A= [];
+//     if(node){
+//         node= node.firstChild;
+//         while(node!= null){
+//             if(node.nodeType== 3) A[A.length]=node;
+//             else A= A.concat(deepText(node));
+//             node= node.nextSibling;
+//         }
+//     }
+//     return A;
+// }
 
-  // deepText(dos[0])
+// deepText(dos[0])
 
-
-
-//// selection 
+//// selection
 // Clear any current selection
 // const selection = window.getSelection();
 // selection.removeAllRanges();
 
 // const node = document.getElementById('demo_text');
-// const range = document.createRange();   
+// const range = document.createRange();
 // range.selectNodeContents(node);
 
 // // Add the range to the empty selection
@@ -119,9 +99,6 @@
 // ::selection {
 //   background: pink;
 // }
-
-
-
 
 // function getSartEnd(elementID)
 //   {
@@ -136,10 +113,7 @@
 
 // console.log( getSartEnd('demo_text') )
 
-
-
-
-// // 
+// //
 // chrome.app.runtime.onLaunched.addListener(function() {
 //   var windowWidth = 300;
 //   var windowHeight = 325;
@@ -159,14 +133,8 @@
 //         screen.availHeight - win.outerBounds.height // top
 //       );
 //     }
-//   );      
+//   );
 // });
-
-
-
-
-
-
 
 // async function fetchData() {
 
@@ -178,22 +146,6 @@
 //   document.getElementById("deathNew").innerHTML=record.data[0].deathNew;
 // }
 // fetchData();
-
-
-
-
-
-
-
-
-  
- 
-
-
-
-
-
-
 
 // (function () {
 //   const basicAutocomplete = document.querySelector('#search-autocomplete');
@@ -210,7 +162,6 @@
 
 // })()
 
-
 // chrome.runtime.onMessage.addListener(
 //   function(request, sender, sendResponse) {
 //       console.log("background.js got a message")
@@ -220,8 +171,61 @@
 //   }
 // );
 
+// // A function to use as callback
+// function doStuffWithDom(domContent) {
+//   console.log('I received the following DOM content:\n' + domContent);
+// }
 
+// // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+// //   chrome.tabs.sendMessage(889923911, {greeting: "hello"}, function(response) {
+// //     console.log(tabs);
+// //   });
+// // });
 
+// chrome.tabs.sendMessage(889923911, {greeting: "hello"}, function(response) {
+//   console.log(response);
+// });
 
+// chrome.runtime.onMessage.addListener(
+//   function(request, sender, sendResponse) {
 
+//     // console.log(request);
+//     console.log(sender);
+//     // console.log(sendResponse);
 
+//     console.log(sender.tab ?
+//                 "from a content script:" + sender.tab.url :
+//                 "from the extension");
+
+//     if (request.greeting === "hello")
+//         sendResponse({farewell: "goodbye"});
+//     }
+
+// );
+// // chrome.tabs.sendMessage(889923908, {text: 'report_back'}, doStuffWithDom);
+
+// ////// this is another function
+// chrome.runtime.onInstalled.addListener(details => {
+//   chrome.storage.local.clear();
+// });
+// chrome.tabs.onUpdated.addListener((tabId, tab)=> {
+//     if (tab.status == "complete") {
+//         chrome.tabs.sendMessage(tabId, {start: true});
+//     }
+// });
+// chrome.runtime.onMessage.addListener((request, sender) => {
+//     //console.log(request)
+//     chrome.storage.local.set({["tab"+sender.tab.id]:request});
+//     chrome.storage.local.get("tab"+sender.tab.id).then(dat => {
+//         chrome.action.setBadgeText({
+//             text: request.total+ "",
+//             tabId: sender.tab.id
+//         });
+//     });
+// });
+// // Clear Cache
+// chrome.tabs.onRemoved.addListener(tabId => {
+//     chrome.storage.local.get('tab'+tabId).then(data => {
+//         delete data['tab' + tabId];
+//     });
+// });

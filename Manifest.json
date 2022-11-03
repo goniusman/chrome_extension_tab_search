@@ -1,26 +1,27 @@
 {
-  "name": "Tab Query!", 
+  "name": "Tab Query!",
   "version": "1.0.0",
   "description": "Find your tab",
-  "permissions": ["tabs","storage", "scripting","activeTab", "webNavigation"], 
+  "permissions": ["tabs", "storage", "scripting", "activeTab", "webNavigation"],
   "manifest_version": 3,
   "author": "Osman Goni",
-  "action":{
-      "default_popup": "popup.html",
-      "default_title": "Latest Covid Report", 
-      "default_icon": {              
-        "16": "images/icon16.png",   
-        "24": "images/icon24.png",   
-        "32": "images/icon32.png"    
-      }
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Latest Covid Report",
+    "default_icon": {
+      "16": "images/ext-icon.png",
+      "24": "images/ext-icon.png",
+      "32": "images/ext-icon.png",
+      "64": "images/ext-icon.png"
+    }
   },
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-        "matches": ["*://*/*"],
-        "js": ["content.js"]
+      "matches": ["*://*/*"],
+      "js": ["content.js"]
     }
   ],
 

@@ -1,0 +1,16 @@
+.form-outline .form-control {
+  border: 1px solid #625cc1 !important;
+}
+
+.image-resize {
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+}
+.image-resize img {
+  width: 30px;
+  height: 35px;
+}
+.list-group {
+  margin-bottom: 1rem;
+}
