@@ -1,38 +1,35 @@
 {
-  "name": "Tab Query!",
-  "version": "1.0.0",
-  "description": "Find your tab",
-  "permissions": ["tabs", "storage", "scripting", "activeTab", "webNavigation"],
-  "manifest_version": 3,
-  "author": "Osman Goni",
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Latest Covid Report",
-    "default_icon": {
-      "16": "images/icon16.png",
-      "24": "images/icon24.png",
-      "32": "images/icon32.png"
-    }
-  },
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "js": ["content.js"]
-    }
-  ],
+    "name": "Tab Query!",
+    "version": "1.0.0",
+    "description": "Find your tab",
+    "permissions": ["tabs", "storage", "scripting", "activeTab", "webNavigation"],
+    "manifest_version": 3,
+    "author": "Osman Goni",
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Latest Covid Report",
+        "default_icon": {
+            "16": "images/ext-icon.png",
+            "24": "images/ext-icon.png",
+            "32": "images/ext-icon.png",
+            "64": "images/ext-icon.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": ["content.js"]
+    }],
 
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "assets/bookmark.png",
-        "assets/play.png",
-        "assets/delete.png",
-        "assets/save.png"
-      ],
-      "matches": ["https://*.com/*"]
-    }
-  ]
+    "web_accessible_resources": [{
+        "resources": [
+            "assets/bookmark.png",
+            "assets/play.png",
+            "assets/delete.png",
+            "assets/save.png"
+        ],
+        "matches": ["https://*.com/*"]
+    }]
 }

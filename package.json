@@ -1,0 +1,20 @@
+{
+    "name": "tabsearch",
+    "version": "1.0.0",
+    "description": "",
+    "main": "axios.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/goniusman/chrome_extension_tab_search.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/goniusman/chrome_extension_tab_search/issues"
+    },
+    "homepage": "https://github.com/goniusman/chrome_extension_tab_search#readme"
+}
